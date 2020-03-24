@@ -5,16 +5,21 @@ import matplotlib
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt 
 
-
+set=0
+print("set="+str(set), end="")
+if set==0:
+    print("(Eevee)") 
+else: 
+    print("(Cycles)")
 
 #Motion track each video and save the raw tracking data
 #(numpy array : [x , y , radius])
 print("Tracking Cam X...", end="")
-xRaw = ot.trackVideo("../RenderOutput/set0/X/x.mp4")
+xRaw = ot.trackVideo("../RenderOutput/set"+str(set)+"/X/x.mp4")
 print("done.\nTracking Cam Y...", end="")
-yRaw = ot.trackVideo("../RenderOutput/set0/Y/y.mp4")
+yRaw = ot.trackVideo("../RenderOutput/set"+str(set)+"/Y/y.mp4")
 print("done.\nTracking Cam Z...", end="")
-zRaw = ot.trackVideo("../RenderOutput/set0/Z/z.mp4")
+zRaw = ot.trackVideo("../RenderOutput/set"+str(set)+"/Z/z.mp4")
 print("done.")
 
 #encode the tracking visualization as an mp4 video 
